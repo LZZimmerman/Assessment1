@@ -7,9 +7,30 @@ gameOver = False
 
 
 ##player setup questions
+
 print("This game is an adventure game where you will explore, gain experience and collect weapons.\nPlease answer a few questions about your character:")
-usrName = input("What would you like to call yourself?")
-usrHand = input("Are you right or left handed?")
+nameCheck = True
+while nameCheck == True:
+    usrName = input("What would you like to call yourself?")
+    if usrName.isdigit():
+        print("Please enter a name, not a number")
+    elif len(usrName) > 20:
+        print("Please enter a shorter name")
+    else:
+        print("Your name is " + usrName)
+        nameCheck2 = True
+        while nameCheck2 == True:
+            nameConfirm = input("Confirm [Y/N}").lower()
+            if nameConfirm in ["y", "yes"]:
+                nameCheck = False
+                nameCheck2 = False
+            elif nameConfirm in ["n", "no"]:
+                nameCheck2 = False
+            else:
+                print("Please enter a valid input")
+
+usrHand = input("Are you right or left handed?").lower()
 ### Game loop ###
 
-while not gameOver:
+#while not gameOver:
+
