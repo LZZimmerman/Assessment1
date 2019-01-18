@@ -4,7 +4,7 @@
 g = 0
 inventory = ()
 gameOver = False
-
+usrHandness = 0 ##1 = right handed 2 = left handed
 
 ##player setup questions
 
@@ -28,8 +28,20 @@ while nameCheck == True:
                 nameCheck2 = False
             else:
                 print("Please enter a valid input")
-
-usrHand = input("Are you right or left handed?").lower()
+handCheck = True
+while handCheck == True:
+    usrHand = input("Are you right or left handed?").lower()
+    if usrHand in ["right, r"]:
+        usrHandness = 1
+        print("You are right-handed.")
+        handCheck = False
+    elif usrHand in ["left", "l"]:
+        usrHandness = 2
+        print("You are left-handed")
+        handCheck = False
+    else:
+        print("Please enter a valid input")
+        
 ### Game loop ###
 
 #while not gameOver:
